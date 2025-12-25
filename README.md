@@ -50,46 +50,61 @@ LibraryManagementSystem
 
   * Kitap bilgilerini tutar
 
-  * Ödünç durumunu kontrol eder
+  * Constructor ile güvenli nesne oluşturma
 
-  * Bilgileri ekrana yazdırabilir
+  * Ödünç verilip verilmediğini takip eder (IsBorrowed)
+
+  * Bilgileri ekrana yazdıran DisplayInfo() metoduna sahiptir
 
 * 👤 Member
 
-  * Kütüphane üyelerinin bilgilerini tutar
+  * Üye bilgilerini tutar
 
-  * Üye bilgilerini ekrana yazdırabilir
+  * Constructor ile oluşturulur
+
+  * Üye detaylarını gösteren DisplayInfo() metodu vardır
 
 * 🔄 BorrowRecord
 
   * Kitap–üye ilişkisini temsil eder
 
-  * Ödünç alma tarihi
+  * Ödünç alma tarihi tutulur
 
-  * İade durumu ve iade tarihi
+  * İade edilene kadar IsReturned = false
 
-  * İade edilip edilmediğine göre detaylı çıktı verir
+  * İade edildiğinde:
+
+    * İade tarihi atanır
+
+    * Ekranda duruma göre farklı bilgi yazdırır
 
 * 🧠 LibraryManager
 
-  * Kitap ekleme / silme
+  * Şu işlemleri yönetir:
 
-  * Üye ekleme / silme
+  ✔ Kitap ekleme — aynı ID’ye izin vermez<br>
+  ✔ Kitap silme<br>
+  ✔ Kitap listeleme<br>
 
-  * Kitapları ve üyeleri listeleme
+  ✔ Üye ekleme — aynı ID’ye izin vermez<br>
+  ✔ Üye silme<br>
+  ✔ Üye listeleme<br>
 
-  * (İleride) ödünç alma ve iade işlemleri
+  ➡ Ayrıca ödünç ve iade işlemleri için altyapı hazırlanmıştır (liste vb.)
 <hr>
 
 🧪 Mevcut Özellikler
 
-✔ Kitap oluşturma ve listeleme
+  ✔ Kitap oluşturma<br>
+  ✔ Kitap listeleme<br>
+  ✔ Kitap silme<br>
 
-✔ Üye oluşturma ve listeleme
+  ✔ Üye oluşturma<br>
+  ✔ Üye listeleme<br>
+  ✔ Üye silme<br>
 
-✔ Ödünç kayıt yapısı (BorrowRecord)
-
-✔ İade durumuna göre çıktı alma
+  ✔ Ödünç kayıt yapısı (BorrowRecord)<br>
+  ✔ İade durumuna göre çıktı alma<br>
 <hr>
 
 🔜 Planlanan Geliştirmeler
@@ -104,8 +119,64 @@ LibraryManagementSystem
 
 ⏳ ADO.NET ile veritabanı entegrasyonu
 
-⏳ Hata kontrolleri ve iyileştirmeler
+⏳ Hata kontrolleri ve kullanıcı deneyimi iyileştirmeleri
 <hr>
+
+```
++------------------+          +------------------+
+|      Book        |          |      Member      |
++------------------+          +------------------+
+| Id               |          | Id              |
+| Title            |          | FirstName       |
+| Author           |          | LastName        |
+| Category         |          | PhoneNumber     |
+| IsBorrowed       |          +------------------+
++------------------+          | DisplayInfo()   |
+| DisplayInfo()    |          +------------------+
++------------------+
+
+
+              1                1
+Book -------------------- BorrowRecord -------------------- Member
+             (Book)                          (Member)
+                         |
+                         | 0..1
+                         |
+                         v
+                     ReturnDate
+
+
++---------------------------+
+|       BorrowRecord        |
++---------------------------+
+| Id                        |
+| BorrowDate                |
+| ReturnDate (nullable)     |
+| IsReturned                |
++---------------------------+
+| DisplayInfo()             |
++---------------------------+
+
+
+                  1
+         +----------------------+
+         |    LibraryManager    |
+         +----------------------+
+         | books : List<Book>   |
+         | members : List<Member>|
+         | borrowRecords : List<BorrowRecord> |
+         +----------------------+
+         | AddBook()            |
+         | DeleteBook()         |
+         | ShowBooks()          |
+         | AddMember()          |
+         | RemoveMember()       |
+         | ShowMembers()        |
+         | BorrowBooks()        |
+         | ReturnBook()         |
+         | BorrowingHistory()   |
+         +----------------------+
+```
 
 📝 Notlar
 
