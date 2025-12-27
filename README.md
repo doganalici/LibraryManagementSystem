@@ -89,8 +89,13 @@ LibraryManagementSystem
   ✔ Üye ekleme — aynı ID’ye izin vermez<br>
   ✔ Üye silme<br>
   ✔ Üye listeleme<br>
-
-  ➡ Ayrıca ödünç ve iade işlemleri için altyapı hazırlanmıştır (liste vb.)
+ 
+  ✔ Kitap ekleme / silme<br>
+  ✔ Üye ekleme / silme<br>
+  ✔ Kitapları ve üyeleri listeleme<br>
+  ✔ Kitap ödünç verme<br>
+  ✔ Kitap iade etme<br>
+  ✔ Ödünç geçmişi görüntüleme<br>
 <hr>
 
 🧪 Mevcut Özellikler
@@ -103,23 +108,42 @@ LibraryManagementSystem
   ✔ Üye listeleme<br>
   ✔ Üye silme<br>
 
+  ✔ Kitap silme<br>
+  ✔ Üye silme<br>
+  ✔ Kitap ödünç verme<br>
+  ✔ Kitap iade etme<br>
+  ✔ Ödünç geçmişini listeleme<br>
+
   ✔ Ödünç kayıt yapısı (BorrowRecord)<br>
   ✔ İade durumuna göre çıktı alma<br>
 <hr>
 
+🎛️ Uygulama Menüsü
+Program açıldığında şu menü ile işlem yapılır:
+
+1 - Kitap Ekle<br>
+2 - Kitap Sil<br>
+3 - Kitapları Listele<br>
+4 - Üye Ekle<br>
+5 - Üye Sil<br>
+6 - Üyeleri Listele<br>
+7 - Kitap Ödünç Ver<br>
+8 - Kitap İade Et<br>
+9 - Ödünç Geçmişi<br>
+0 - Çıkış<br>
+
+--> Her seçenek, LibraryManager içindeki ilgili metodu çalıştırır.
+<hr>
+
 🔜 Planlanan Geliştirmeler
 
-⏳ Kitap ödünç alma işlemi
+    ⏳ Ödünç alınan kitaplar için süre takibi<br>
 
-⏳ Kitap iade etme işlemi
+    ⏳ Geciken kitaplar için uyarı sistemi<br>
+ 
+    ⏳ Daha gelişmiş arama & filtreleme (LINQ)<br>
 
-⏳ Aynı kitabın birden fazla kez ödünç alınmasını engelleme
-
-⏳ LINQ kullanılarak filtreleme ve sorgular
-
-⏳ ADO.NET ile veritabanı entegrasyonu
-
-⏳ Hata kontrolleri ve kullanıcı deneyimi iyileştirmeleri
+    ⏳ Veritabanı kaydı (ADO.NET)<br>
 <hr>
 
 ```
