@@ -31,7 +31,7 @@ namespace LibraryManagementSystem
                 $"Adı : {Title}\n" +
                 $"Yazarı : {Author}\n" +
                 $"Kategorisi : {Category}\n" +
-                $"Ödünç Verilmiş Mi? : {IsBorrowed}");
+                $"Ödünç Verilmiş Mi? : {(IsBorrowed ? "EVET" : "HAYIR")}");
         }
     }
 

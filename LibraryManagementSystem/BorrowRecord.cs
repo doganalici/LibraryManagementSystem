@@ -29,7 +29,7 @@ namespace LibraryManagementSystem
         {
             Console.WriteLine($"İd : {Id}\n" +
                 $"Kitap Adı : {Book.Title}\n" +
-                $"Üye Adı : {Member.FirstName} + {Member.LastName}\n" +
+                $"Üye Adı : {Member.FirstName}  {Member.LastName}\n" +
                 $"Kitap Alım Tarihi : {BorrowDate:dd.MM.yyyy}");
             if (IsReturned)
             {
